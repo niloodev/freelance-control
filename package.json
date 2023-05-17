@@ -4,14 +4,20 @@
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",
+    "compile:sass": "sass --watch --style=compressed app/assets/sass/:app/assets/css",
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.13.0",
     "@remix-run/css-bundle": "^1.16.0",
     "@remix-run/node": "^1.16.0",
     "@remix-run/react": "^1.16.0",
     "@remix-run/vercel": "^1.16.0",
     "@vercel/node": "^2.10.3",
+    "framer-motion": "^10.12.12",
     "isbot": "^3.6.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

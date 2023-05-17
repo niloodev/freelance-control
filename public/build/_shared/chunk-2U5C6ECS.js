@@ -7,7 +7,7 @@ import {
   init_global,
   init_process,
   require_react
-} from "/build/_shared/chunk-NLQNPAAV.js";
+} from "/build/_shared/chunk-VR7LW3IS.js";
 
 // node_modules/@remix-run/router/dist/router.js
 function _extends() {
@@ -5619,6 +5619,7 @@ function ScrollRestoration2({
 
 export {
   Outlet,
+  Link2 as Link,
   Links,
   Meta,
   Scripts,
@@ -5832,4 +5833,4 @@ react-router-dom/dist/index.js:
    * @license MIT
    *)
 */
-//# sourceMappingURL=/build/_shared/chunk-FWJPOJUS.js.map
+//# sourceMappingURL=/build/_shared/chunk-2U5C6ECS.js.map

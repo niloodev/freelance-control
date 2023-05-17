@@ -6,7 +6,7 @@ import {
   init_global,
   init_process,
   require_jsx_dev_runtime
-} from "/build/_shared/chunk-NLQNPAAV.js";
+} from "/build/_shared/chunk-VR7LW3IS.js";
 
 // browser-route-module:routes/_index.tsx?browser
 init_global();
@@ -99,4 +99,4 @@ export {
   Index as default,
   meta
 };
-//# sourceMappingURL=/build/routes/_index-L2JHB2EY.js.map
+//# sourceMappingURL=/build/routes/_index-WO54UJZM.js.map

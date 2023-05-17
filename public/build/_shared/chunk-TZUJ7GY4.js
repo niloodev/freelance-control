@@ -1,17 +1,12 @@
 import {
-  RemixBrowser
-} from "/build/_shared/chunk-FWJPOJUS.js";
-import {
   __commonJS,
-  __toESM,
   init_buffer,
   init_dirname,
   init_filename,
   init_global,
   init_process,
-  require_jsx_dev_runtime,
   require_react
-} from "/build/_shared/chunk-NLQNPAAV.js";
+} from "/build/_shared/chunk-VR7LW3IS.js";
 
 // node_modules/scheduler/cjs/scheduler.development.js
 var require_scheduler_development = __commonJS({
@@ -12897,7 +12892,7 @@ var require_react_dom_development = __commonJS({
             return value;
           }
         }
-        function startTransition2(setPending, callback, options2) {
+        function startTransition(setPending, callback, options2) {
           var previousPriority = getCurrentUpdatePriority();
           setCurrentUpdatePriority(higherEventPriority(previousPriority, ContinuousEventPriority));
           setPending(true);
@@ -12926,7 +12921,7 @@ var require_react_dom_development = __commonJS({
         }
         function mountTransition() {
           var _mountState = mountState(false), isPending = _mountState[0], setPending = _mountState[1];
-          var start = startTransition2.bind(null, setPending);
+          var start = startTransition.bind(null, setPending);
           var hook = mountWorkInProgressHook();
           hook.memoizedState = start;
           return [isPending, start];
@@ -21204,7 +21199,7 @@ var require_react_dom_development = __commonJS({
           }
         }
         ReactDOMHydrationRoot.prototype.unstable_scheduleHydration = scheduleHydration;
-        function hydrateRoot2(container, initialChildren, options2) {
+        function hydrateRoot(container, initialChildren, options2) {
           if (!isValidContainer(container)) {
             throw new Error("hydrateRoot(...): Target container is not a DOM element.");
           }
@@ -21535,7 +21530,7 @@ var require_react_dom_development = __commonJS({
               error('You are importing hydrateRoot from "react-dom" which is not supported. You should instead import it from "react-dom/client".');
             }
           }
-          return hydrateRoot2(container, initialChildren, options2);
+          return hydrateRoot(container, initialChildren, options2);
         }
         function flushSync$1(fn) {
           {
@@ -21599,65 +21594,9 @@ var require_react_dom = __commonJS({
   }
 });
 
-// node_modules/react-dom/client.js
-var require_client = __commonJS({
-  "node_modules/react-dom/client.js"(exports) {
-    "use strict";
-    init_global();
-    init_dirname();
-    init_filename();
-    init_buffer();
-    init_process();
-    var m = require_react_dom();
-    if (false) {
-      exports.createRoot = m.createRoot;
-      exports.hydrateRoot = m.hydrateRoot;
-    } else {
-      i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-      exports.createRoot = function(c, o) {
-        i.usingClientEntryPoint = true;
-        try {
-          return m.createRoot(c, o);
-        } finally {
-          i.usingClientEntryPoint = false;
-        }
-      };
-      exports.hydrateRoot = function(c, h, o) {
-        i.usingClientEntryPoint = true;
-        try {
-          return m.hydrateRoot(c, h, o);
-        } finally {
-          i.usingClientEntryPoint = false;
-        }
-      };
-    }
-    var i;
-  }
-});
-
-// app/entry.client.tsx
-init_global();
-init_dirname();
-init_filename();
-init_buffer();
-init_process();
-var import_react2 = __toESM(require_react());
-var import_client = __toESM(require_client());
-var import_jsx_dev_runtime = __toESM(require_jsx_dev_runtime());
-(0, import_react2.startTransition)(() => {
-  (0, import_client.hydrateRoot)(
-    document,
-    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react2.StrictMode, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(RemixBrowser, {}, void 0, false, {
-      fileName: "app/entry.client.tsx",
-      lineNumber: 15,
-      columnNumber: 7
-    }, this) }, void 0, false, {
-      fileName: "app/entry.client.tsx",
-      lineNumber: 14,
-      columnNumber: 5
-    }, this)
-  );
-});
+export {
+  require_react_dom
+};
 /*! Bundled license information:
 
 scheduler/cjs/scheduler.development.js:
@@ -21695,4 +21634,4 @@ react-dom/cjs/react-dom.development.js:
    * @license Modernizr 3.0.0pre (Custom Build) | MIT
    *)
 */
-//# sourceMappingURL=/build/entry.client-RLE5J355.js.map
+//# sourceMappingURL=/build/_shared/chunk-TZUJ7GY4.js.map

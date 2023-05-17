@@ -1,11 +1,15 @@
 import {
+  ThemeProvider,
+  createTheme_default
+} from "/build/_shared/chunk-CDIH427S.js";
+import {
   Links,
   LiveReload,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration
-} from "/build/_shared/chunk-FWJPOJUS.js";
+} from "/build/_shared/chunk-2U5C6ECS.js";
 import {
   __toESM,
   init_buffer,
@@ -14,7 +18,7 @@ import {
   init_global,
   init_process,
   require_jsx_dev_runtime
-} from "/build/_shared/chunk-NLQNPAAV.js";
+} from "/build/_shared/chunk-VR7LW3IS.js";
 
 // browser-route-module:root.tsx?browser
 init_global();
@@ -40,68 +44,111 @@ var assetsManifest = window.__remixManifest;
 var updatedHref = typeof __INJECT_CSS_BUNDLE_HREF__ === "string" ? __INJECT_CSS_BUNDLE_HREF__ : void 0;
 var cssBundleHref = updatedHref || assetsManifest.cssBundleHref;
 
+// app/assets/css/main.css
+var main_default = "/build/_assets/main-GFCCM42O.css";
+
 // app/root.tsx
 var import_jsx_dev_runtime = __toESM(require_jsx_dev_runtime());
+var theme = createTheme_default({
+  palette: {
+    mode: "light",
+    primary: {
+      main: "#666666"
+    },
+    secondary: {
+      main: "#f50057"
+    },
+    error: {
+      main: "#770a0a"
+    }
+  }
+});
+var rootLinks = [
+  { rel: "stylesheet", href: main_default },
+  { rel: "preconnect", href: "https://fonts.googleapis.com" },
+  {
+    rel: "preconnect",
+    href: "https://fonts.gstatic.com"
+  },
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+  }
+];
 var links = () => [
-  ...cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []
+  ...cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }, ...rootLinks] : [...rootLinks]
 ];
 function App() {
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("html", { lang: "en", children: [
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(ThemeProvider, { theme, children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("html", { lang: "en", children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("head", { children: [
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("meta", { charSet: "utf-8" }, void 0, false, {
         fileName: "app/root.tsx",
-        lineNumber: 20,
-        columnNumber: 9
+        lineNumber: 53,
+        columnNumber: 21
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("meta", { name: "viewport", content: "width=device-width,initial-scale=1" }, void 0, false, {
-        fileName: "app/root.tsx",
-        lineNumber: 21,
-        columnNumber: 9
-      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+        "meta",
+        {
+          name: "viewport",
+          content: "width=device-width,initial-scale=1"
+        },
+        void 0,
+        false,
+        {
+          fileName: "app/root.tsx",
+          lineNumber: 54,
+          columnNumber: 21
+        },
+        this
+      ),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Meta, {}, void 0, false, {
         fileName: "app/root.tsx",
-        lineNumber: 22,
-        columnNumber: 9
+        lineNumber: 58,
+        columnNumber: 21
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Links, {}, void 0, false, {
         fileName: "app/root.tsx",
-        lineNumber: 23,
-        columnNumber: 9
+        lineNumber: 59,
+        columnNumber: 21
       }, this)
     ] }, void 0, true, {
       fileName: "app/root.tsx",
-      lineNumber: 19,
-      columnNumber: 7
+      lineNumber: 52,
+      columnNumber: 17
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("body", { children: [
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Outlet, {}, void 0, false, {
         fileName: "app/root.tsx",
-        lineNumber: 26,
-        columnNumber: 9
+        lineNumber: 62,
+        columnNumber: 21
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(ScrollRestoration, {}, void 0, false, {
         fileName: "app/root.tsx",
-        lineNumber: 27,
-        columnNumber: 9
+        lineNumber: 63,
+        columnNumber: 21
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Scripts, {}, void 0, false, {
         fileName: "app/root.tsx",
-        lineNumber: 28,
-        columnNumber: 9
+        lineNumber: 64,
+        columnNumber: 21
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(LiveReload, {}, void 0, false, {
         fileName: "app/root.tsx",
-        lineNumber: 29,
-        columnNumber: 9
+        lineNumber: 65,
+        columnNumber: 21
       }, this)
     ] }, void 0, true, {
       fileName: "app/root.tsx",
-      lineNumber: 25,
-      columnNumber: 7
+      lineNumber: 61,
+      columnNumber: 17
     }, this)
   ] }, void 0, true, {
     fileName: "app/root.tsx",
-    lineNumber: 18,
+    lineNumber: 51,
+    columnNumber: 13
+  }, this) }, void 0, false, {
+    fileName: "app/root.tsx",
+    lineNumber: 50,
     columnNumber: 5
   }, this);
 }
@@ -123,4 +170,4 @@ export {
    * @license MIT
    *)
 */
-//# sourceMappingURL=/build/root-6PBV7646.js.map
+//# sourceMappingURL=/build/root-UXEP5JGR.js.map
