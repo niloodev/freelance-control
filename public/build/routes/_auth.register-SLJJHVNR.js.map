@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["browser-route-module:routes/_auth.register.tsx?browser", "../../../app/routes/_auth.register.tsx"],
-  "sourcesContent": ["export { default, meta } from \"./routes/_auth.register.tsx\";", "import type { V2_MetaFunction } from '@remix-run/react'\nimport { Link } from '@remix-run/react'\n\nimport { motion } from 'framer-motion'\n\nexport const meta: V2_MetaFunction = () => [\n    {\n        title: 'Cadastro - Mei Invoices',\n    },\n]\n\nexport default function Register() {\n    return (\n        <motion.form\n            className=\"auth__form\"\n            action=\"POST\"\n            initial={{ opacity: 0 }}\n            animate={{ opacity: 1 }}\n            exit={{ opacity: 0 }}\n        >\n            <Link to=\"/login\">IR PARA LOGIN</Link>\n        </motion.form>\n    )\n}\n"],
-  "mappings": ";;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;;;ACAA;AAAA;AAAA;AAAA;AAAA;AAoBY;AAfL,IAAM,OAAwB,MAAM;AAAA,EACvC;AAAA,IACI,OAAO;AAAA,EACX;AACJ;AAEe,SAAR,WAA4B;AAC/B,SACI;AAAA,IAAC,OAAO;AAAA,IAAP;AAAA,MACG,WAAU;AAAA,MACV,QAAO;AAAA,MACP,SAAS,EAAE,SAAS,EAAE;AAAA,MACtB,SAAS,EAAE,SAAS,EAAE;AAAA,MACtB,MAAM,EAAE,SAAS,EAAE;AAAA,MAEnB,6DAAC,QAAK,IAAG,UAAS,6BAAlB;AAAA;AAAA;AAAA;AAAA,aAA+B;AAAA;AAAA,IAPnC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,EAQA;AAER;",
-  "names": []
-}

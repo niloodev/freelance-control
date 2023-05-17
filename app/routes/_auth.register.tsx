@@ -11,13 +11,7 @@ export const meta: V2_MetaFunction = () => [
 
 export default function Register() {
     return (
-        <motion.form
-            className="auth__form"
-            action="POST"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-        >
+        <motion.form className="auth__form" action="POST">
             <Link to="/login">IR PARA LOGIN</Link>
         </motion.form>
     )

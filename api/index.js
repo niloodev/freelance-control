@@ -34,7 +34,7 @@ __export(assets_manifest_exports, {
 });
 var assets_manifest_default, init_assets_manifest = __esm({
   "server-assets-manifest:@remix-run/dev/assets-manifest"() {
-    assets_manifest_default = { version: "22824e24", entry: { module: "/build/entry.client-VA4ICQXV.js", imports: ["/build/_shared/chunk-TZUJ7GY4.js", "/build/_shared/chunk-2U5C6ECS.js", "/build/_shared/chunk-VR7LW3IS.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-UXEP5JGR.js", imports: ["/build/_shared/chunk-CDIH427S.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth": { id: "routes/_auth", parentId: "root", path: void 0, index: void 0, caseSensitive: void 0, module: "/build/routes/_auth-3IJKDD6G.js", imports: ["/build/_shared/chunk-VA2TXTSK.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth.login": { id: "routes/_auth.login", parentId: "routes/_auth", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/_auth.login-Z3L33Z4H.js", imports: ["/build/_shared/chunk-CDIH427S.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth.register": { id: "routes/_auth.register", parentId: "routes/_auth", path: "register", index: void 0, caseSensitive: void 0, module: "/build/routes/_auth.register-SLJJHVNR.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-WO54UJZM.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, hmr: void 0, url: "/build/manifest-22824E24.js" };
+    assets_manifest_default = { version: "ba46e01c", entry: { module: "/build/entry.client-YQOC7KQ2.js", imports: ["/build/_shared/chunk-TZUJ7GY4.js", "/build/_shared/chunk-ZQJQGFTC.js", "/build/_shared/chunk-VR7LW3IS.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-JVOI4RDA.js", imports: ["/build/_shared/chunk-CDIH427S.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth": { id: "routes/_auth", parentId: "root", path: void 0, index: void 0, caseSensitive: void 0, module: "/build/routes/_auth-3PKO6MLJ.js", imports: ["/build/_shared/chunk-VA2TXTSK.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth.login": { id: "routes/_auth.login", parentId: "routes/_auth", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/_auth.login-ILZ4S2YD.js", imports: ["/build/_shared/chunk-CDIH427S.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth.register": { id: "routes/_auth.register", parentId: "routes/_auth", path: "register", index: void 0, caseSensitive: void 0, module: "/build/routes/_auth.register-EC2L2TUI.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-WO54UJZM.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, hmr: void 0, url: "/build/manifest-BA46E01C.js" };
   }
 });
 
@@ -290,29 +290,15 @@ var import_react3 = require("@remix-run/react"), import_framer_motion = require(
   }
 ];
 function Register() {
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)(
-    import_framer_motion.motion.form,
-    {
-      className: "auth__form",
-      action: "POST",
-      initial: { opacity: 0 },
-      animate: { opacity: 1 },
-      exit: { opacity: 0 },
-      children: /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)(import_react3.Link, { to: "/login", children: "IR PARA LOGIN" }, void 0, !1, {
-        fileName: "app/routes/_auth.register.tsx",
-        lineNumber: 21,
-        columnNumber: 13
-      }, this)
-    },
-    void 0,
-    !1,
-    {
-      fileName: "app/routes/_auth.register.tsx",
-      lineNumber: 14,
-      columnNumber: 9
-    },
-    this
-  );
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)(import_framer_motion.motion.form, { className: "auth__form", action: "POST", children: /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)(import_react3.Link, { to: "/login", children: "IR PARA LOGIN" }, void 0, !1, {
+    fileName: "app/routes/_auth.register.tsx",
+    lineNumber: 15,
+    columnNumber: 13
+  }, this) }, void 0, !1, {
+    fileName: "app/routes/_auth.register.tsx",
+    lineNumber: 14,
+    columnNumber: 9
+  }, this);
 }
 
 // app/routes/_auth.login.tsx
@@ -327,77 +313,63 @@ var import_react4 = require("@remix-run/react"), import_material = require("@mui
   }
 ];
 function Login() {
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(
-    import_framer_motion2.motion.form,
-    {
-      className: "auth__form",
-      action: "POST",
-      initial: { opacity: 0 },
-      animate: { opacity: 1 },
-      exit: { opacity: 0 },
-      children: [
-        /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(
-          import_material.TextField,
-          {
-            variant: "outlined",
-            type: "email",
-            label: "Email",
-            InputProps: { style: { fontSize: "1.4rem" } },
-            InputLabelProps: { style: { fontSize: "1.4rem" } }
-          },
-          void 0,
-          !1,
-          {
-            fileName: "app/routes/_auth.login.tsx",
-            lineNumber: 23,
-            columnNumber: 13
-          },
-          this
-        ),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(
-          import_material.TextField,
-          {
-            variant: "outlined",
-            type: "password",
-            label: "Senha",
-            InputProps: { style: { fontSize: "1.4rem" } },
-            InputLabelProps: { style: { fontSize: "1.4rem" } }
-          },
-          void 0,
-          !1,
-          {
-            fileName: "app/routes/_auth.login.tsx",
-            lineNumber: 30,
-            columnNumber: 13
-          },
-          this
-        ),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_material.Button, { variant: "contained", children: "Entrar" }, void 0, !1, {
-          fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 37,
-          columnNumber: 13
-        }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("span", { children: "N\xE3o tem uma conta?" }, void 0, !1, {
-          fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 38,
-          columnNumber: 13
-        }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_react4.Link, { to: "/register", children: "Cadastre-se agora!" }, void 0, !1, {
-          fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 39,
-          columnNumber: 13
-        }, this)
-      ]
-    },
-    void 0,
-    !0,
-    {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_framer_motion2.motion.form, { className: "auth__form", action: "POST", children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(
+      import_material.TextField,
+      {
+        variant: "outlined",
+        type: "email",
+        label: "Email",
+        InputProps: { style: { fontSize: "1.4rem" } },
+        InputLabelProps: { style: { fontSize: "1.4rem" } }
+      },
+      void 0,
+      !1,
+      {
+        fileName: "app/routes/_auth.login.tsx",
+        lineNumber: 17,
+        columnNumber: 13
+      },
+      this
+    ),
+    /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(
+      import_material.TextField,
+      {
+        variant: "outlined",
+        type: "password",
+        label: "Senha",
+        InputProps: { style: { fontSize: "1.4rem" } },
+        InputLabelProps: { style: { fontSize: "1.4rem" } }
+      },
+      void 0,
+      !1,
+      {
+        fileName: "app/routes/_auth.login.tsx",
+        lineNumber: 24,
+        columnNumber: 13
+      },
+      this
+    ),
+    /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_material.Button, { variant: "contained", children: "Entrar" }, void 0, !1, {
       fileName: "app/routes/_auth.login.tsx",
-      lineNumber: 16,
-      columnNumber: 9
-    },
-    this
-  );
+      lineNumber: 31,
+      columnNumber: 13
+    }, this),
+    /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("span", { children: "N\xE3o tem uma conta?" }, void 0, !1, {
+      fileName: "app/routes/_auth.login.tsx",
+      lineNumber: 32,
+      columnNumber: 13
+    }, this),
+    /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_react4.Link, { to: "/register", children: "Cadastre-se agora!" }, void 0, !1, {
+      fileName: "app/routes/_auth.login.tsx",
+      lineNumber: 33,
+      columnNumber: 13
+    }, this)
+  ] }, void 0, !0, {
+    fileName: "app/routes/_auth.login.tsx",
+    lineNumber: 16,
+    columnNumber: 9
+  }, this);
 }
 
 // app/routes/_index.tsx
@@ -487,7 +459,7 @@ __export(auth_exports, {
 var import_react5 = require("@remix-run/react"), import_framer_motion3 = require("framer-motion");
 
 // app/assets/css/layout/auth.css
-var auth_default = "/build/_assets/auth-EMB6D7GB.css";
+var auth_default = "/build/_assets/auth-PBAL7N3J.css";
 
 // app/routes/_auth.tsx
 var import_jsx_dev_runtime6 = require("react/jsx-dev-runtime"), links2 = () => [
@@ -497,28 +469,43 @@ var import_jsx_dev_runtime6 = require("react/jsx-dev-runtime"), links2 = () => [
   }
 ];
 function AuthLayout() {
+  let outlet = (0, import_react5.useOutlet)(), location = (0, import_react5.useLocation)();
   return /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)("main", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)("section", { className: "auth", children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)("h1", { children: "Mei Invoices" }, void 0, !1, {
       fileName: "app/routes/_auth.tsx",
-      lineNumber: 19,
+      lineNumber: 21,
       columnNumber: 17
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)(import_framer_motion3.AnimatePresence, { initial: !1, children: /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)(import_react5.Outlet, {}, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)(import_framer_motion3.AnimatePresence, { mode: "wait", initial: !1, children: /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)(
+      import_framer_motion3.motion.div,
+      {
+        className: "auth__wrapper",
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        exit: { opacity: 0 },
+        transition: { duration: 0.15 },
+        children: outlet
+      },
+      location.pathname,
+      !1,
+      {
+        fileName: "app/routes/_auth.tsx",
+        lineNumber: 23,
+        columnNumber: 21
+      },
+      this
+    ) }, void 0, !1, {
       fileName: "app/routes/_auth.tsx",
-      lineNumber: 21,
-      columnNumber: 21
-    }, this) }, void 0, !1, {
-      fileName: "app/routes/_auth.tsx",
-      lineNumber: 20,
+      lineNumber: 22,
       columnNumber: 17
     }, this)
   ] }, void 0, !0, {
     fileName: "app/routes/_auth.tsx",
-    lineNumber: 18,
+    lineNumber: 20,
     columnNumber: 13
   }, this) }, void 0, !1, {
     fileName: "app/routes/_auth.tsx",
-    lineNumber: 17,
+    lineNumber: 19,
     columnNumber: 5
   }, this);
 }

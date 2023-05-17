@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["browser-route-module:routes/_auth.tsx?browser", "../../../app/routes/_auth.tsx"],
-  "sourcesContent": ["export { default, links } from \"./routes/_auth.tsx\";", "import { LinksFunction } from '@remix-run/node';\nimport { Outlet } from '@remix-run/react';\n\nimport { AnimatePresence } from 'framer-motion';\n\nimport auth from '../assets/css/layout/auth.css';\n\nexport const links: LinksFunction = () => [\n{\n  href: auth,\n  rel: 'stylesheet'\n}];\n\n\nexport default function AuthLayout() {\n  return (\n    <main>\n            <section className=\"auth\">\n                <h1>Mei Invoices</h1>\n                <AnimatePresence initial={false}>\n                    <Outlet />\n                </AnimatePresence>\n            </section>\n        </main>);\n\n}"],
-  "mappings": ";;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;;;ACAA;AAAA;AAAA;AAAA;AAAA;;;;;;AAkBgB;AAXT,IAAM,QAAuB,MAAM;AAAA,EAC1C;AAAA,IACE,MAAM;AAAA,IACN,KAAK;AAAA,EACP;AAAC;AAGc,SAAR,aAA8B;AACnC,SACE,mDAAC,UACO,6DAAC,aAAQ,WAAU,QACf;AAAA,uDAAC,QAAG,4BAAJ;AAAA;AAAA;AAAA;AAAA,WAAgB;AAAA,IAChB,mDAAC,mBAAgB,SAAS,OACtB,6DAAC,YAAD;AAAA;AAAA;AAAA;AAAA,WAAQ,KADZ;AAAA;AAAA;AAAA;AAAA,WAEA;AAAA,OAJJ;AAAA;AAAA;AAAA;AAAA,SAKA,KANR;AAAA;AAAA;AAAA;AAAA,SAOI;AAER;",
-  "names": []
-}
