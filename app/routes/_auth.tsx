@@ -22,10 +22,12 @@ export default function AuthLayout() {
                 <AnimatePresence mode="wait" initial={false}>
                     <motion.div
                         className="auth__wrapper"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.15 }}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 20 }}
+                        transition={{
+                            duration: 0.15,
+                        }}
                         key={location.pathname}
                     >
                         {outlet}

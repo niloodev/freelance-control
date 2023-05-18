@@ -8,23 +8,7 @@ import {
     Scripts,
     ScrollRestoration,
 } from '@remix-run/react'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
 import main from './assets/css/main.css'
-
-const theme = createTheme({
-    palette: {
-        mode: 'light',
-        primary: {
-            main: '#666666',
-        },
-        secondary: {
-            main: '#f50057',
-        },
-        error: {
-            main: '#770a0a',
-        },
-    },
-})
 
 const rootLinks = [
     { rel: 'stylesheet', href: main },
@@ -47,24 +31,22 @@ export const links: LinksFunction = () => [
 
 export default function App() {
     return (
-        <ThemeProvider theme={theme}>
-            <html lang="en">
-                <head>
-                    <meta charSet="utf-8" />
-                    <meta
-                        name="viewport"
-                        content="width=device-width,initial-scale=1"
-                    />
-                    <Meta />
-                    <Links />
-                </head>
-                <body>
-                    <Outlet />
-                    <ScrollRestoration />
-                    <Scripts />
-                    <LiveReload />
-                </body>
-            </html>
-        </ThemeProvider>
+        <html lang="en">
+            <head>
+                <meta charSet="utf-8" />
+                <meta
+                    name="viewport"
+                    content="width=device-width,initial-scale=1"
+                />
+                <Meta />
+                <Links />
+            </head>
+            <body>
+                <Outlet />
+                <ScrollRestoration />
+                <Scripts />
+                <LiveReload />
+            </body>
+        </html>
     )
 }

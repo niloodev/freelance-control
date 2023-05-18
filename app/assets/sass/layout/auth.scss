@@ -1,13 +1,16 @@
 .auth {
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
     background-image: url(../../svg/background.svg);
     background-size: cover;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (max-height: 675px) and (max-width: 560px) {
+        min-height: 675px;
+    }
 
     & h1 {
         font-size: 4rem;
@@ -21,16 +24,38 @@
         margin: 0 auto;
         text-align: center;
         text-shadow: 0px 0px 20px rgba(0, 0, 0, .6);
+
+        @media only screen and (max-width: 800px) {
+            font-size: 2.5rem;
+            letter-spacing: -.1rem;
+            top: 1rem;
+        }
     }
 
     &__wrapper {
         position: relative;
         background-color: #fff;
-        padding: 2rem 1.5rem;
-        border-radius: 1rem;
+        padding: 3rem 1.5rem 2rem 1.5rem;
+        border-radius: .5rem;
         max-width: 30rem;
         width: 90%;
         box-shadow: 0px 0px 20px rgba(0, 0, 0, .4);
+
+        &:has(.auth__form--extended) {
+            max-width: 50rem;
+        }
+    }
+
+    &__row {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 1rem;
+        width: 100%;
+
+        & > div {
+            flex: 1;
+            min-width: 23rem;
+        }
     }
 
     &__form {
@@ -43,7 +68,16 @@
 
         & button {
             font-size: 1.4rem;
+            line-height: 1.4rem;
             font-weight: 600;
+            
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+
+            &:first-of-type {
+                padding: 1rem 0;
+            }
         }
 
         & span {
@@ -59,5 +93,25 @@
             margin: 0 auto;
             color: #39609b;
         }
+
+        & .MuiFormHelperText-root {
+            font-size: 1rem;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+    }
+
+    &__error {
+        position: absolute;
+        top: .3rem;
+        left: 0;
+        font-size: 1.15rem;
+        right: 0;
+        margin: 0 auto;
+        color: rgb(255, 92, 92);
+        font-weight: 500;
+        width: fit-content;
+        text-align: center;
     }
 }
