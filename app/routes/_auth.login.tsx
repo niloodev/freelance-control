@@ -1,4 +1,9 @@
-import { ActionFunction, json, V2_MetaFunction } from '@remix-run/node'
+import {
+    ActionFunction,
+    HeadersFunction,
+    json,
+    V2_MetaFunction,
+} from '@remix-run/node'
 import { createValidator } from '~/utils/validation/validation.boilerplate'
 
 import { ValidatedForm } from 'remix-validated-form'
@@ -7,6 +12,10 @@ import { Button, Checkbox, FormControlLabel } from '@mui/material'
 import { TextField } from '~/components/form'
 
 const validator = createValidator(new Set(['email', 'password']))
+
+export const headers: HeadersFunction = () => ({
+    'Cache-Control': 'max-age=604800, stale-while-revalidate=86400',
+})
 
 export const meta: V2_MetaFunction = () => [
     {

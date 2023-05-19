@@ -1,5 +1,6 @@
 import {
     ActionFunction,
+    HeadersFunction,
     json,
     redirect,
     V2_MetaFunction,
@@ -17,6 +18,10 @@ import { registerUser } from '~/actions/auth.actions'
 const validator = createValidator(
     new Set(['email', 'password', 'tel', 'cnpj', 'meiName', 'name'])
 )
+
+export const headers: HeadersFunction = () => ({
+    'Cache-Control': 'max-age=604800, stale-while-revalidate=86400',
+})
 
 export const meta: V2_MetaFunction = () => [
     {
