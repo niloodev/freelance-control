@@ -80,11 +80,15 @@
             }
         }
 
-        & span {
+        & > span {
             font-size: 1.3rem;
             font-weight: 500;
             margin: 0 auto;
             color: #2c2c2c;
+        }
+
+        & span {
+            font-size: 1.3rem;
         }
 
         & a {
@@ -99,6 +103,10 @@
             position: absolute;
             bottom: 0;
             left: 0;
+        }
+
+        & .MuiSvgIcon-root {
+            font-size: 2rem;
         }
     }
 

@@ -7,9 +7,6 @@ import {
 import { useActionData } from '@remix-run/react'
 import { createValidator } from '~/utils/validation/validation.boilerplate'
 
-import GoogleIcon from '@mui/icons-material/Google'
-import FacebookIcon from '@mui/icons-material/Facebook'
-
 import { ValidatedForm } from 'remix-validated-form'
 import { Link } from '@remix-run/react'
 import { Button } from '@mui/material'
@@ -39,7 +36,6 @@ export const action: ActionFunction = async ({ request }) => {
     try {
         await registerUser(data)
     } catch (e) {
-        console.log(e)
         return json(
             {
                 message: 'Erro ao criar usuário ou usuário existente.',
@@ -113,13 +109,7 @@ export default function Register() {
                 ></TextField>
             </div>
             <Button variant="contained" type="submit">
-                Entrar
-            </Button>
-            <Button variant="contained" type="submit" name="google-signin">
-                Cadastrar-se com <GoogleIcon fontSize="large" />
-            </Button>
-            <Button variant="contained" type="submit" name="facebook-signin">
-                Cadastrar-se com <FacebookIcon fontSize="large" />
+                Cadastrar-se
             </Button>
             <span>Já tem uma conta?</span>
             <Link to="/login">Entre agora</Link>

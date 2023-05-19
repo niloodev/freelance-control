@@ -1,12 +1,9 @@
 import { ActionFunction, json, V2_MetaFunction } from '@remix-run/node'
 import { createValidator } from '~/utils/validation/validation.boilerplate'
 
-import GoogleIcon from '@mui/icons-material/Google'
-import FacebookIcon from '@mui/icons-material/Facebook'
-
 import { ValidatedForm } from 'remix-validated-form'
 import { Link, useActionData } from '@remix-run/react'
-import { Button } from '@mui/material'
+import { Button, Checkbox, FormControlLabel } from '@mui/material'
 import { TextField } from '~/components/form'
 
 const validator = createValidator(new Set(['email', 'password']))
@@ -56,14 +53,12 @@ export default function Login() {
                 label="Senha"
                 name="password"
             ></TextField>
+            <FormControlLabel
+                control={<Checkbox defaultChecked />}
+                label="Manter autenticado"
+            />
             <Button variant="contained" type="submit">
                 Entrar
-            </Button>
-            <Button variant="contained" type="submit" name="google-signin">
-                Continuar com <GoogleIcon fontSize="large" />
-            </Button>
-            <Button variant="contained" type="submit" name="facebook-signin">
-                Continuar com <FacebookIcon fontSize="large" />
             </Button>
             <span>Não possui uma conta?</span>
             <Link to="/register">Cadastre-se</Link>

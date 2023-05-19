@@ -34,7 +34,7 @@ __export(assets_manifest_exports, {
 });
 var assets_manifest_default, init_assets_manifest = __esm({
   "server-assets-manifest:@remix-run/dev/assets-manifest"() {
-    assets_manifest_default = { version: "14da173a", entry: { module: "/build/entry.client-SXTVTPJW.js", imports: ["/build/_shared/chunk-GEFCX2A6.js", "/build/_shared/chunk-HMYJKECG.js", "/build/_shared/chunk-TBRGJTBB.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-XZYWHKKH.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth": { id: "routes/_auth", parentId: "root", path: void 0, index: void 0, caseSensitive: void 0, module: "/build/routes/_auth-JIL3WX2T.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth.login": { id: "routes/_auth.login", parentId: "routes/_auth", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/_auth.login-7TAOCVV6.js", imports: ["/build/_shared/chunk-XA6Y4KXF.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth.register": { id: "routes/_auth.register", parentId: "routes/_auth", path: "register", index: void 0, caseSensitive: void 0, module: "/build/routes/_auth.register-422DHVNC.js", imports: ["/build/_shared/chunk-XA6Y4KXF.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-MPNY62PW.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, hmr: void 0, url: "/build/manifest-14DA173A.js" };
+    assets_manifest_default = { version: "cc53e1c2", entry: { module: "/build/entry.client-SXTVTPJW.js", imports: ["/build/_shared/chunk-GEFCX2A6.js", "/build/_shared/chunk-HMYJKECG.js", "/build/_shared/chunk-TBRGJTBB.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-XZYWHKKH.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth": { id: "routes/_auth", parentId: "root", path: void 0, index: void 0, caseSensitive: void 0, module: "/build/routes/_auth-QSGF3Q56.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth.login": { id: "routes/_auth.login", parentId: "routes/_auth", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/_auth.login-F7P5M3FC.js", imports: ["/build/_shared/chunk-5XHTEU6D.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth.register": { id: "routes/_auth.register", parentId: "routes/_auth", path: "register", index: void 0, caseSensitive: void 0, module: "/build/routes/_auth.register-JANHFLKJ.js", imports: ["/build/_shared/chunk-5XHTEU6D.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-MPNY62PW.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, hmr: void 0, url: "/build/manifest-CC53E1C2.js" };
   }
 });
 
@@ -312,7 +312,7 @@ function createValidator(labels) {
 }
 
 // app/routes/_auth.register.tsx
-var import_Google = __toESM(require("@mui/icons-material/Google")), import_Facebook = __toESM(require("@mui/icons-material/Facebook")), import_remix_validated_form2 = require("remix-validated-form"), import_react5 = require("@remix-run/react"), import_material2 = require("@mui/material");
+var import_remix_validated_form2 = require("remix-validated-form"), import_react5 = require("@remix-run/react"), import_material2 = require("@mui/material");
 
 // app/components/form/TextField/TextField.tsx
 var import_material = require("@mui/material"), import_remix_validated_form = require("remix-validated-form"), import_react_input_mask = __toESM(require("react-input-mask")), import_react3 = require("react"), import_jsx_dev_runtime3 = require("react/jsx-dev-runtime"), TextField = (0, import_react3.memo)(
@@ -384,7 +384,7 @@ var User = import_mongoose.default.models.User || import_mongoose.default.model(
 var import_bcryptjs = __toESM(require("bcryptjs"));
 async function registerUser(user) {
   try {
-    let salt = import_bcryptjs.default.genSaltSync(), hashedPassword = import_bcryptjs.default.hashSync(user.password, salt);
+    let salt = await import_bcryptjs.default.genSalt(), hashedPassword = await import_bcryptjs.default.hash(user.password, salt);
     user.password = hashedPassword;
     let nUser = new User(user);
     if ((await User.find({ email: user == null ? void 0 : user.email })).length != 0)
@@ -412,8 +412,8 @@ var import_jsx_dev_runtime4 = require("react/jsx-dev-runtime"), validator = crea
   let data = validate.data;
   try {
     await registerUser(data);
-  } catch (e) {
-    return console.log(e), (0, import_node2.json)(
+  } catch {
+    return (0, import_node2.json)(
       {
         message: "Erro ao criar usu\xE1rio ou usu\xE1rio existente.",
         logged: !1
@@ -434,11 +434,11 @@ function Register() {
       children: [
         (action3 == null ? void 0 : action3.logged) == !1 ? /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("p", { className: "auth__error", children: action3 == null ? void 0 : action3.message }, void 0, !1, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 64,
+          lineNumber: 60,
           columnNumber: 17
         }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_jsx_dev_runtime4.Fragment, {}, void 0, !1, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 66,
+          lineNumber: 62,
           columnNumber: 17
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("div", { className: "auth__row", children: [
@@ -454,7 +454,7 @@ function Register() {
             !1,
             {
               fileName: "app/routes/_auth.register.tsx",
-              lineNumber: 69,
+              lineNumber: 65,
               columnNumber: 17
             },
             this
@@ -471,14 +471,14 @@ function Register() {
             !1,
             {
               fileName: "app/routes/_auth.register.tsx",
-              lineNumber: 75,
+              lineNumber: 71,
               columnNumber: 17
             },
             this
           )
         ] }, void 0, !0, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 68,
+          lineNumber: 64,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("div", { className: "auth__row", children: [
@@ -495,7 +495,7 @@ function Register() {
             !1,
             {
               fileName: "app/routes/_auth.register.tsx",
-              lineNumber: 83,
+              lineNumber: 79,
               columnNumber: 17
             },
             this
@@ -514,14 +514,14 @@ function Register() {
             !1,
             {
               fileName: "app/routes/_auth.register.tsx",
-              lineNumber: 90,
+              lineNumber: 86,
               columnNumber: 17
             },
             this
           )
         ] }, void 0, !0, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 82,
+          lineNumber: 78,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("div", { className: "auth__row", children: [
@@ -537,7 +537,7 @@ function Register() {
             !1,
             {
               fileName: "app/routes/_auth.register.tsx",
-              lineNumber: 100,
+              lineNumber: 96,
               columnNumber: 17
             },
             this
@@ -556,53 +556,29 @@ function Register() {
             !1,
             {
               fileName: "app/routes/_auth.register.tsx",
-              lineNumber: 106,
+              lineNumber: 102,
               columnNumber: 17
             },
             this
           )
         ] }, void 0, !0, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 99,
+          lineNumber: 95,
           columnNumber: 13
         }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_material2.Button, { variant: "contained", type: "submit", children: "Entrar" }, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_material2.Button, { variant: "contained", type: "submit", children: "Cadastrar-se" }, void 0, !1, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 115,
-          columnNumber: 13
-        }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_material2.Button, { variant: "contained", type: "submit", name: "google-signin", children: [
-          "Cadastrar-se com ",
-          /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_Google.default, { fontSize: "large" }, void 0, !1, {
-            fileName: "app/routes/_auth.register.tsx",
-            lineNumber: 119,
-            columnNumber: 34
-          }, this)
-        ] }, void 0, !0, {
-          fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 118,
-          columnNumber: 13
-        }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_material2.Button, { variant: "contained", type: "submit", name: "facebook-signin", children: [
-          "Cadastrar-se com ",
-          /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_Facebook.default, { fontSize: "large" }, void 0, !1, {
-            fileName: "app/routes/_auth.register.tsx",
-            lineNumber: 122,
-            columnNumber: 34
-          }, this)
-        ] }, void 0, !0, {
-          fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 121,
+          lineNumber: 111,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("span", { children: "J\xE1 tem uma conta?" }, void 0, !1, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 124,
+          lineNumber: 114,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_react5.Link, { to: "/login", children: "Entre agora" }, void 0, !1, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 125,
+          lineNumber: 115,
           columnNumber: 13
         }, this)
       ]
@@ -611,7 +587,7 @@ function Register() {
     !0,
     {
       fileName: "app/routes/_auth.register.tsx",
-      lineNumber: 58,
+      lineNumber: 54,
       columnNumber: 9
     },
     this
@@ -626,7 +602,7 @@ __export(auth_login_exports, {
   meta: () => meta2
 });
 var import_node3 = require("@remix-run/node");
-var import_Google2 = __toESM(require("@mui/icons-material/Google")), import_Facebook2 = __toESM(require("@mui/icons-material/Facebook")), import_remix_validated_form3 = require("remix-validated-form"), import_react6 = require("@remix-run/react"), import_material3 = require("@mui/material");
+var import_remix_validated_form3 = require("remix-validated-form"), import_react6 = require("@remix-run/react"), import_material3 = require("@mui/material");
 var import_jsx_dev_runtime5 = require("react/jsx-dev-runtime"), validator2 = createValidator(/* @__PURE__ */ new Set(["email", "password"])), meta2 = () => [
   {
     title: "Entrar - Mei Invoices"
@@ -652,11 +628,11 @@ function Login() {
       children: [
         (action3 == null ? void 0 : action3.logged) == !1 ? /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("p", { className: "auth__error", children: action3 == null ? void 0 : action3.message }, void 0, !1, {
           fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 42,
+          lineNumber: 39,
           columnNumber: 17
         }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_jsx_dev_runtime5.Fragment, {}, void 0, !1, {
           fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 44,
+          lineNumber: 41,
           columnNumber: 17
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(
@@ -672,7 +648,7 @@ function Login() {
           !1,
           {
             fileName: "app/routes/_auth.login.tsx",
-            lineNumber: 46,
+            lineNumber: 43,
             columnNumber: 13
           },
           this
@@ -689,48 +665,43 @@ function Login() {
           !1,
           {
             fileName: "app/routes/_auth.login.tsx",
-            lineNumber: 53,
+            lineNumber: 50,
+            columnNumber: 13
+          },
+          this
+        ),
+        /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(
+          import_material3.FormControlLabel,
+          {
+            control: /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_material3.Checkbox, { defaultChecked: !0 }, void 0, !1, {
+              fileName: "app/routes/_auth.login.tsx",
+              lineNumber: 57,
+              columnNumber: 26
+            }, this),
+            label: "Manter autenticado"
+          },
+          void 0,
+          !1,
+          {
+            fileName: "app/routes/_auth.login.tsx",
+            lineNumber: 56,
             columnNumber: 13
           },
           this
         ),
         /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_material3.Button, { variant: "contained", type: "submit", children: "Entrar" }, void 0, !1, {
           fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 59,
-          columnNumber: 13
-        }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_material3.Button, { variant: "contained", type: "submit", name: "google-signin", children: [
-          "Continuar com ",
-          /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_Google2.default, { fontSize: "large" }, void 0, !1, {
-            fileName: "app/routes/_auth.login.tsx",
-            lineNumber: 63,
-            columnNumber: 31
-          }, this)
-        ] }, void 0, !0, {
-          fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 62,
-          columnNumber: 13
-        }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_material3.Button, { variant: "contained", type: "submit", name: "facebook-signin", children: [
-          "Continuar com ",
-          /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_Facebook2.default, { fontSize: "large" }, void 0, !1, {
-            fileName: "app/routes/_auth.login.tsx",
-            lineNumber: 66,
-            columnNumber: 31
-          }, this)
-        ] }, void 0, !0, {
-          fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 65,
+          lineNumber: 60,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("span", { children: "N\xE3o possui uma conta?" }, void 0, !1, {
           fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 68,
+          lineNumber: 63,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_react6.Link, { to: "/register", children: "Cadastre-se" }, void 0, !1, {
           fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 69,
+          lineNumber: 64,
           columnNumber: 13
         }, this)
       ]
@@ -739,7 +710,7 @@ function Login() {
     !0,
     {
       fileName: "app/routes/_auth.login.tsx",
-      lineNumber: 36,
+      lineNumber: 33,
       columnNumber: 9
     },
     this
@@ -764,7 +735,7 @@ __export(auth_exports, {
 var import_react7 = require("@remix-run/react"), import_framer_motion = require("framer-motion");
 
 // app/assets/css/layout/auth.css
-var auth_default = "/build/_assets/auth-ANXR7Y5B.css";
+var auth_default = "/build/_assets/auth-BTNUWP2F.css";
 
 // app/routes/_auth.tsx
 var import_jsx_dev_runtime6 = require("react/jsx-dev-runtime"), links2 = () => [
