@@ -34,7 +34,7 @@ __export(assets_manifest_exports, {
 });
 var assets_manifest_default, init_assets_manifest = __esm({
   "server-assets-manifest:@remix-run/dev/assets-manifest"() {
-    assets_manifest_default = { version: "c05c6f12", entry: { module: "/build/entry.client-SXTVTPJW.js", imports: ["/build/_shared/chunk-GEFCX2A6.js", "/build/_shared/chunk-HMYJKECG.js", "/build/_shared/chunk-TBRGJTBB.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-XZYWHKKH.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth": { id: "routes/_auth", parentId: "root", path: void 0, index: void 0, caseSensitive: void 0, module: "/build/routes/_auth-QNLOBEPB.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth.login": { id: "routes/_auth.login", parentId: "routes/_auth", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/_auth.login-RON7UO73.js", imports: ["/build/_shared/chunk-5XHTEU6D.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth.register": { id: "routes/_auth.register", parentId: "routes/_auth", path: "register", index: void 0, caseSensitive: void 0, module: "/build/routes/_auth.register-VAPJA4M6.js", imports: ["/build/_shared/chunk-5XHTEU6D.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-MPNY62PW.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, hmr: void 0, url: "/build/manifest-C05C6F12.js" };
+    assets_manifest_default = { version: "7a7215e2", entry: { module: "/build/entry.client-SXTVTPJW.js", imports: ["/build/_shared/chunk-GEFCX2A6.js", "/build/_shared/chunk-HMYJKECG.js", "/build/_shared/chunk-TBRGJTBB.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-XZYWHKKH.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth": { id: "routes/_auth", parentId: "root", path: void 0, index: void 0, caseSensitive: void 0, module: "/build/routes/_auth-QNLOBEPB.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth.login": { id: "routes/_auth.login", parentId: "routes/_auth", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/_auth.login-F43RYBIQ.js", imports: ["/build/_shared/chunk-5XHTEU6D.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth.register": { id: "routes/_auth.register", parentId: "routes/_auth", path: "register", index: void 0, caseSensitive: void 0, module: "/build/routes/_auth.register-NXEKUJA6.js", imports: ["/build/_shared/chunk-5XHTEU6D.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-MPNY62PW.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, hmr: void 0, url: "/build/manifest-7A7215E2.js" };
   }
 });
 
@@ -400,7 +400,7 @@ async function registerUser(user) {
 var import_jsx_dev_runtime4 = require("react/jsx-dev-runtime"), validator = createValidator(
   /* @__PURE__ */ new Set(["email", "password", "tel", "cnpj", "meiName", "name"])
 ), headers = () => ({
-  "Cache-Control": "public, max-age=604800"
+  "Cache-Control": "private, max-age=604800"
 }), meta = () => [
   {
     title: "Cadastro - Mei Invoices"
@@ -608,7 +608,7 @@ __export(auth_login_exports, {
 var import_node3 = require("@remix-run/node");
 var import_remix_validated_form3 = require("remix-validated-form"), import_react6 = require("@remix-run/react"), import_material3 = require("@mui/material");
 var import_jsx_dev_runtime5 = require("react/jsx-dev-runtime"), validator2 = createValidator(/* @__PURE__ */ new Set(["email", "password"])), headers2 = () => ({
-  "Cache-Control": "public, max-age=604800"
+  "Cache-Control": "private, max-age=604800"
 }), meta2 = () => [
   {
     title: "Entrar - Mei Invoices"
