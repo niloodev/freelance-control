@@ -8,10 +8,6 @@
     justify-content: center;
     align-items: center;
 
-    @media (max-height: 675px) and (max-width: 560px) {
-        min-height: 675px;
-    }
-
     & h1 {
         font-size: 4rem;
         color: #FFF;

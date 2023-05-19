@@ -20,7 +20,7 @@ const validator = createValidator(
 )
 
 export const headers: HeadersFunction = () => ({
-    'Cache-Control': 'max-age=604800, stale-while-revalidate=86400',
+    'Cache-Control': 'public, max-age=604800',
 })
 
 export const meta: V2_MetaFunction = () => [
