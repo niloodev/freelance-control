@@ -6,22 +6,21 @@ import {
   ValidatedForm,
   createValidator,
   init_index_esm
-} from "/build/_shared/chunk-5XHTEU6D.js";
-import "/build/_shared/chunk-GEFCX2A6.js";
+} from "/build/_shared/chunk-WHDRGZV3.js";
+import "/build/_shared/chunk-FMBPE4YN.js";
 import {
   Link,
-  init_esm,
-  require_jsx_dev_runtime,
-  useActionData
-} from "/build/_shared/chunk-HMYJKECG.js";
-import {
   __toESM,
   init_buffer,
   init_dirname,
+  init_esm,
   init_filename,
   init_global,
-  init_process
-} from "/build/_shared/chunk-TBRGJTBB.js";
+  init_process,
+  require_jsx_dev_runtime,
+  useActionData,
+  useNavigation
+} from "/build/_shared/chunk-LDQVXYHF.js";
 
 // browser-route-module:routes/_auth.login.tsx?browser
 init_global();
@@ -47,6 +46,7 @@ var meta = () => [
 ];
 function Login() {
   const action = useActionData();
+  const navigation = useNavigation();
   return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
     ValidatedForm,
     {
@@ -56,11 +56,11 @@ function Login() {
       children: [
         (action == null ? void 0 : action.logged) == false ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("p", { className: "auth__error", children: action == null ? void 0 : action.message }, void 0, false, {
           fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 48,
+          lineNumber: 80,
           columnNumber: 17
         }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, {}, void 0, false, {
           fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 50,
+          lineNumber: 82,
           columnNumber: 17
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
@@ -70,13 +70,14 @@ function Login() {
             type: "email",
             label: "E-mail",
             name: "email",
-            placeholder: "email@example.com"
+            placeholder: "email@example.com",
+            disabled: navigation.state == "submitting"
           },
           void 0,
           false,
           {
             fileName: "app/routes/_auth.login.tsx",
-            lineNumber: 52,
+            lineNumber: 84,
             columnNumber: 13
           },
           this
@@ -87,13 +88,14 @@ function Login() {
             variant: "outlined",
             type: "password",
             label: "Senha",
-            name: "password"
+            name: "password",
+            disabled: navigation.state == "submitting"
           },
           void 0,
           false,
           {
             fileName: "app/routes/_auth.login.tsx",
-            lineNumber: 59,
+            lineNumber: 92,
             columnNumber: 13
           },
           this
@@ -103,33 +105,46 @@ function Login() {
           {
             control: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Checkbox_default, { defaultChecked: true }, void 0, false, {
               fileName: "app/routes/_auth.login.tsx",
-              lineNumber: 66,
+              lineNumber: 100,
               columnNumber: 26
             }, this),
-            label: "Manter autenticado"
+            label: "Manter autenticado",
+            disabled: navigation.state == "submitting"
           },
           void 0,
           false,
           {
             fileName: "app/routes/_auth.login.tsx",
-            lineNumber: 65,
+            lineNumber: 99,
             columnNumber: 13
           },
           this
         ),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Button_default, { variant: "contained", type: "submit", children: "Entrar" }, void 0, false, {
-          fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 69,
-          columnNumber: 13
-        }, this),
+        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+          Button_default,
+          {
+            variant: "contained",
+            disabled: navigation.state == "submitting",
+            type: "submit",
+            children: "Entrar"
+          },
+          void 0,
+          false,
+          {
+            fileName: "app/routes/_auth.login.tsx",
+            lineNumber: 104,
+            columnNumber: 13
+          },
+          this
+        ),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { children: "N\xE3o possui uma conta?" }, void 0, false, {
           fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 72,
+          lineNumber: 111,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Link, { to: "/register", children: "Cadastre-se" }, void 0, false, {
           fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 73,
+          lineNumber: 112,
           columnNumber: 13
         }, this)
       ]
@@ -138,7 +153,7 @@ function Login() {
     true,
     {
       fileName: "app/routes/_auth.login.tsx",
-      lineNumber: 42,
+      lineNumber: 74,
       columnNumber: 9
     },
     this
@@ -148,4 +163,4 @@ export {
   Login as default,
   meta
 };
-//# sourceMappingURL=/build/routes/_auth.login-F43RYBIQ.js.map
+//# sourceMappingURL=/build/routes/_auth.login-KRZ6FXWW.js.map

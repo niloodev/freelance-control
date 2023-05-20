@@ -1,14 +1,12 @@
 import {
-  require_react
-} from "/build/_shared/chunk-HMYJKECG.js";
-import {
   __commonJS,
   init_buffer,
   init_dirname,
   init_filename,
   init_global,
-  init_process
-} from "/build/_shared/chunk-TBRGJTBB.js";
+  init_process,
+  require_react
+} from "/build/_shared/chunk-LDQVXYHF.js";
 
 // node_modules/scheduler/cjs/scheduler.development.js
 var require_scheduler_development = __commonJS({
@@ -21636,4 +21634,4 @@ react-dom/cjs/react-dom.development.js:
    * @license Modernizr 3.0.0pre (Custom Build) | MIT
    *)
 */
-//# sourceMappingURL=/build/_shared/chunk-GEFCX2A6.js.map
+//# sourceMappingURL=/build/_shared/chunk-FMBPE4YN.js.map

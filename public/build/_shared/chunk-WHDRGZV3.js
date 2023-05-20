@@ -1,19 +1,8 @@
 import {
   require_react_dom
-} from "/build/_shared/chunk-GEFCX2A6.js";
+} from "/build/_shared/chunk-FMBPE4YN.js";
 import {
   Form,
-  init_esm,
-  init_router,
-  json,
-  require_jsx_dev_runtime,
-  require_react,
-  useActionData,
-  useMatches,
-  useSubmit,
-  useTransition
-} from "/build/_shared/chunk-HMYJKECG.js";
-import {
   __commonJS,
   __esm,
   __export,
@@ -22,10 +11,19 @@ import {
   global,
   init_buffer,
   init_dirname,
+  init_esm,
   init_filename,
   init_global,
-  init_process
-} from "/build/_shared/chunk-TBRGJTBB.js";
+  init_process,
+  init_router,
+  json,
+  require_jsx_dev_runtime,
+  require_react,
+  useActionData,
+  useMatches,
+  useSubmit,
+  useTransition
+} from "/build/_shared/chunk-LDQVXYHF.js";
 
 // node_modules/remeda/dist/es/purry.js
 function purry(fn2, args, lazy) {
@@ -28969,7 +28967,7 @@ var TextField = /* @__PURE__ */ React64.forwardRef(function TextField2(inProps, 
     id: idOverride,
     InputLabelProps,
     inputProps,
-    InputProps,
+    InputProps: InputProps2,
     inputRef,
     label,
     maxRows,
@@ -29044,7 +29042,7 @@ var TextField = /* @__PURE__ */ React64.forwardRef(function TextField2(inProps, 
     onClick,
     placeholder,
     inputProps
-  }, InputMore, InputProps));
+  }, InputMore, InputProps2));
   return /* @__PURE__ */ (0, import_jsx_runtime60.jsxs)(TextFieldRoot, _extends({
     className: clsx_m_default(classes.root, className),
     disabled,
@@ -29274,12 +29272,14 @@ var TextField3 = (0, import_react25.memo)(
       {
         ...getInputProps({
           id: name,
-          value: value != null ? value : "",
+          value,
+          mask,
           onChange: (e) => {
             setValue(e.target.value);
             validate();
           }
         }),
+        ...props,
         mask,
         maskPlaceholder: null,
         children: (nextProps) => {
@@ -29303,7 +29303,7 @@ var TextField3 = (0, import_react25.memo)(
             false,
             {
               fileName: "app/components/form/TextField/TextField.tsx",
-              lineNumber: 31,
+              lineNumber: 42,
               columnNumber: 29
             },
             this
@@ -29314,7 +29314,7 @@ var TextField3 = (0, import_react25.memo)(
       false,
       {
         fileName: "app/components/form/TextField/TextField.tsx",
-        lineNumber: 14,
+        lineNumber: 18,
         columnNumber: 13
       },
       this
@@ -29463,4 +29463,4 @@ react-is/cjs/react-is.development.js:
    * LICENSE file in the root directory of this source tree.
    *)
 */
-//# sourceMappingURL=/build/_shared/chunk-5XHTEU6D.js.map
+//# sourceMappingURL=/build/_shared/chunk-WHDRGZV3.js.map

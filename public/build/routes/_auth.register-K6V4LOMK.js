@@ -4,22 +4,20 @@ import {
   ValidatedForm,
   createValidator,
   init_index_esm
-} from "/build/_shared/chunk-5XHTEU6D.js";
-import "/build/_shared/chunk-GEFCX2A6.js";
+} from "/build/_shared/chunk-WHDRGZV3.js";
+import "/build/_shared/chunk-FMBPE4YN.js";
 import {
   Link,
-  init_esm,
-  require_jsx_dev_runtime,
-  useActionData
-} from "/build/_shared/chunk-HMYJKECG.js";
-import {
   __toESM,
   init_buffer,
   init_dirname,
+  init_esm,
   init_filename,
   init_global,
-  init_process
-} from "/build/_shared/chunk-TBRGJTBB.js";
+  init_process,
+  require_jsx_dev_runtime,
+  useActionData
+} from "/build/_shared/chunk-LDQVXYHF.js";
 
 // browser-route-module:routes/_auth.register.tsx?browser
 init_global();
@@ -57,11 +55,11 @@ function Register() {
       children: [
         (action == null ? void 0 : action.logged) == false ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("p", { className: "auth__error", children: action == null ? void 0 : action.message }, void 0, false, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 65,
+          lineNumber: 69,
           columnNumber: 17
         }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, {}, void 0, false, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 67,
+          lineNumber: 71,
           columnNumber: 17
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "auth__row", children: [
@@ -77,7 +75,7 @@ function Register() {
             false,
             {
               fileName: "app/routes/_auth.register.tsx",
-              lineNumber: 70,
+              lineNumber: 74,
               columnNumber: 17
             },
             this
@@ -94,14 +92,14 @@ function Register() {
             false,
             {
               fileName: "app/routes/_auth.register.tsx",
-              lineNumber: 76,
+              lineNumber: 80,
               columnNumber: 17
             },
             this
           )
         ] }, void 0, true, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 69,
+          lineNumber: 73,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "auth__row", children: [
@@ -118,7 +116,7 @@ function Register() {
             false,
             {
               fileName: "app/routes/_auth.register.tsx",
-              lineNumber: 84,
+              lineNumber: 88,
               columnNumber: 17
             },
             this
@@ -137,14 +135,14 @@ function Register() {
             false,
             {
               fileName: "app/routes/_auth.register.tsx",
-              lineNumber: 91,
+              lineNumber: 95,
               columnNumber: 17
             },
             this
           )
         ] }, void 0, true, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 83,
+          lineNumber: 87,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "auth__row", children: [
@@ -160,7 +158,7 @@ function Register() {
             false,
             {
               fileName: "app/routes/_auth.register.tsx",
-              lineNumber: 101,
+              lineNumber: 105,
               columnNumber: 17
             },
             this
@@ -179,29 +177,29 @@ function Register() {
             false,
             {
               fileName: "app/routes/_auth.register.tsx",
-              lineNumber: 107,
+              lineNumber: 111,
               columnNumber: 17
             },
             this
           )
         ] }, void 0, true, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 100,
+          lineNumber: 104,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Button_default, { variant: "contained", type: "submit", children: "Cadastrar-se" }, void 0, false, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 116,
+          lineNumber: 120,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { children: "J\xE1 tem uma conta?" }, void 0, false, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 119,
+          lineNumber: 123,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Link, { to: "/login", children: "Entre agora" }, void 0, false, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 120,
+          lineNumber: 124,
           columnNumber: 13
         }, this)
       ]
@@ -210,7 +208,7 @@ function Register() {
     true,
     {
       fileName: "app/routes/_auth.register.tsx",
-      lineNumber: 59,
+      lineNumber: 63,
       columnNumber: 9
     },
     this
@@ -220,4 +218,4 @@ export {
   Register as default,
   meta
 };
-//# sourceMappingURL=/build/routes/_auth.register-NXEKUJA6.js.map
+//# sourceMappingURL=/build/routes/_auth.register-K6V4LOMK.js.map

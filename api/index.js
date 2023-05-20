@@ -34,7 +34,7 @@ __export(assets_manifest_exports, {
 });
 var assets_manifest_default, init_assets_manifest = __esm({
   "server-assets-manifest:@remix-run/dev/assets-manifest"() {
-    assets_manifest_default = { version: "7a7215e2", entry: { module: "/build/entry.client-SXTVTPJW.js", imports: ["/build/_shared/chunk-GEFCX2A6.js", "/build/_shared/chunk-HMYJKECG.js", "/build/_shared/chunk-TBRGJTBB.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-XZYWHKKH.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth": { id: "routes/_auth", parentId: "root", path: void 0, index: void 0, caseSensitive: void 0, module: "/build/routes/_auth-QNLOBEPB.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth.login": { id: "routes/_auth.login", parentId: "routes/_auth", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/_auth.login-F43RYBIQ.js", imports: ["/build/_shared/chunk-5XHTEU6D.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth.register": { id: "routes/_auth.register", parentId: "routes/_auth", path: "register", index: void 0, caseSensitive: void 0, module: "/build/routes/_auth.register-NXEKUJA6.js", imports: ["/build/_shared/chunk-5XHTEU6D.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-MPNY62PW.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, hmr: void 0, url: "/build/manifest-7A7215E2.js" };
+    assets_manifest_default = { version: "137ff61e", entry: { module: "/build/entry.client-26LRK7NX.js", imports: ["/build/_shared/chunk-FMBPE4YN.js", "/build/_shared/chunk-LDQVXYHF.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-J4ZVSSV5.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth": { id: "routes/_auth", parentId: "root", path: void 0, index: void 0, caseSensitive: void 0, module: "/build/routes/_auth-XWGUOY3B.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth.login": { id: "routes/_auth.login", parentId: "routes/_auth", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/_auth.login-KRZ6FXWW.js", imports: ["/build/_shared/chunk-WHDRGZV3.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth.register": { id: "routes/_auth.register", parentId: "routes/_auth", path: "register", index: void 0, caseSensitive: void 0, module: "/build/routes/_auth.register-K6V4LOMK.js", imports: ["/build/_shared/chunk-WHDRGZV3.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-T7FBXZBJ.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, hmr: void 0, url: "/build/manifest-137FF61E.js" };
   }
 });
 
@@ -286,10 +286,10 @@ var auth_register_exports = {};
 __export(auth_register_exports, {
   action: () => action,
   default: () => Register,
-  headers: () => headers,
+  loader: () => loader,
   meta: () => meta
 });
-var import_node2 = require("@remix-run/node"), import_react4 = require("@remix-run/react");
+var import_node3 = require("@remix-run/node"), import_react4 = require("@remix-run/react");
 
 // app/utils/validation/validation.boilerplate.ts
 var import_with_zod = require("@remix-validated-form/with-zod"), import_zod = require("zod"), validationLabels = {
@@ -312,6 +312,86 @@ function createValidator(labels) {
   return (0, import_with_zod.withZod)(import_zod.z.object(validationObject));
 }
 
+// app/actions/auth.actions.ts
+var import_node2 = require("@remix-run/node");
+
+// app/utils/db/models/db.schemas.ts
+var userSchema = new import_mongoose.default.Schema({
+  name: String,
+  password: String,
+  email: String,
+  meiName: String,
+  cnpj: String,
+  tel: String
+});
+
+// app/utils/db/models/index.ts
+var User = import_mongoose.default.models.User || import_mongoose.default.model("User", userSchema);
+
+// app/actions/auth.actions.ts
+var import_jsonwebtoken = __toESM(require("jsonwebtoken")), import_bcryptjs = __toESM(require("bcryptjs"));
+async function registerUser(user) {
+  try {
+    let salt = await import_bcryptjs.default.genSalt(), hashedPassword = await import_bcryptjs.default.hash(user.password, salt);
+    user.password = hashedPassword;
+    let nUser = new User(user);
+    if ((await User.find({ email: user == null ? void 0 : user.email })).length != 0)
+      throw new Error("User already exists");
+    return await nUser.save(), nUser;
+  } catch (e) {
+    throw new Error(e);
+  }
+}
+async function loginUser({
+  email,
+  password
+}) {
+  try {
+    let alreadyExists = await User.find({ email });
+    if (alreadyExists.length == 0)
+      throw new Error("Usu\xE1rio inexistente.");
+    let user = alreadyExists[0];
+    if (await import_bcryptjs.default.compare(password, user.password))
+      return { email };
+    throw new Error("Credenciais incorretas.");
+  } catch (e) {
+    throw new Error(e);
+  }
+}
+var { getSession, commitSession, destroySession } = (0, import_node2.createCookieSessionStorage)({
+  cookie: {
+    name: "_session",
+    maxAge: 604800
+  }
+});
+function createToken(email) {
+  return new Promise((resolve, reject) => {
+    import_jsonwebtoken.default.sign(email, process.env.JWT_KEY, (err, token) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+      resolve(token);
+    });
+  });
+}
+async function checkToken(cookies) {
+  return new Promise((resolve, reject) => {
+    getSession(cookies ?? "").then((session) => {
+      if (!session.has("__auth")) {
+        resolve({ session });
+        return;
+      }
+      let token = session.get("__auth");
+      if (!import_jsonwebtoken.default.verify(token, process.env.JWT_KEY)) {
+        resolve({ session });
+        return;
+      }
+      resolve({ session, decodedToken: token });
+    }).catch((e) => reject(e));
+  });
+}
+
 // app/routes/_auth.register.tsx
 var import_remix_validated_form2 = require("remix-validated-form"), import_react5 = require("@remix-run/react"), import_material2 = require("@mui/material");
 
@@ -324,11 +404,13 @@ var import_material = require("@mui/material"), import_remix_validated_form = re
       {
         ...getInputProps({
           id: name,
-          value: value ?? "",
+          value,
+          mask,
           onChange: (e) => {
             setValue(e.target.value), validate();
           }
         }),
+        ...props,
         mask,
         maskPlaceholder: null,
         children: (nextProps) => (delete nextProps.mask, delete nextProps.maskPlaceholder, /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)(
@@ -349,7 +431,7 @@ var import_material = require("@mui/material"), import_remix_validated_form = re
           !1,
           {
             fileName: "app/components/form/TextField/TextField.tsx",
-            lineNumber: 31,
+            lineNumber: 42,
             columnNumber: 29
           },
           this
@@ -359,7 +441,7 @@ var import_material = require("@mui/material"), import_remix_validated_form = re
       !1,
       {
         fileName: "app/components/form/TextField/TextField.tsx",
-        lineNumber: 14,
+        lineNumber: 18,
         columnNumber: 13
       },
       this
@@ -368,47 +450,22 @@ var import_material = require("@mui/material"), import_remix_validated_form = re
   (prevProps, nextProps) => prevProps.name == nextProps.name
 );
 
-// app/utils/db/models/db.schemas.ts
-var userSchema = new import_mongoose.default.Schema({
-  name: String,
-  password: String,
-  email: String,
-  meiName: String,
-  cnpj: String,
-  tel: String
-});
-
-// app/utils/db/models/index.ts
-var User = import_mongoose.default.models.User || import_mongoose.default.model("User", userSchema);
-
-// app/actions/auth.actions.ts
-var import_bcryptjs = __toESM(require("bcryptjs"));
-async function registerUser(user) {
-  try {
-    let salt = await import_bcryptjs.default.genSalt(), hashedPassword = await import_bcryptjs.default.hash(user.password, salt);
-    user.password = hashedPassword;
-    let nUser = new User(user);
-    if ((await User.find({ email: user == null ? void 0 : user.email })).length != 0)
-      throw new Error("User already exists");
-    return await nUser.save(), nUser;
-  } catch (e) {
-    throw new Error(e);
-  }
-}
-
 // app/routes/_auth.register.tsx
 var import_jsx_dev_runtime4 = require("react/jsx-dev-runtime"), validator = createValidator(
   /* @__PURE__ */ new Set(["email", "password", "tel", "cnpj", "meiName", "name"])
-), headers = () => ({
-  "Cache-Control": "private, max-age=604800"
-}), meta = () => [
+), meta = () => [
   {
     title: "Cadastro - Mei Invoices"
   }
-], action = async ({ request }) => {
+], loader = async ({ request }) => {
+  let { decodedToken } = await checkToken(request.headers.get("Cookie"));
+  if (decodedToken)
+    throw (0, import_node3.redirect)("/");
+  return null;
+}, action = async ({ request }) => {
   let formData = await request.formData(), validate = await validator.validate(formData);
   if (!validate.data)
-    return (0, import_node2.json)(
+    return (0, import_node3.json)(
       { message: "Verifique seus campos.", logged: !1 },
       { status: 400 }
     );
@@ -416,7 +473,7 @@ var import_jsx_dev_runtime4 = require("react/jsx-dev-runtime"), validator = crea
   try {
     await registerUser(data);
   } catch {
-    return (0, import_node2.json)(
+    return (0, import_node3.json)(
       {
         message: "Erro ao criar usu\xE1rio ou usu\xE1rio existente.",
         logged: !1
@@ -424,7 +481,7 @@ var import_jsx_dev_runtime4 = require("react/jsx-dev-runtime"), validator = crea
       { status: 400 }
     );
   }
-  throw (0, import_node2.redirect)("/login");
+  throw (0, import_node3.redirect)("/login");
 };
 function Register() {
   let action3 = (0, import_react4.useActionData)();
@@ -437,11 +494,11 @@ function Register() {
       children: [
         (action3 == null ? void 0 : action3.logged) == !1 ? /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("p", { className: "auth__error", children: action3 == null ? void 0 : action3.message }, void 0, !1, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 65,
+          lineNumber: 69,
           columnNumber: 17
         }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_jsx_dev_runtime4.Fragment, {}, void 0, !1, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 67,
+          lineNumber: 71,
           columnNumber: 17
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("div", { className: "auth__row", children: [
@@ -457,7 +514,7 @@ function Register() {
             !1,
             {
               fileName: "app/routes/_auth.register.tsx",
-              lineNumber: 70,
+              lineNumber: 74,
               columnNumber: 17
             },
             this
@@ -474,14 +531,14 @@ function Register() {
             !1,
             {
               fileName: "app/routes/_auth.register.tsx",
-              lineNumber: 76,
+              lineNumber: 80,
               columnNumber: 17
             },
             this
           )
         ] }, void 0, !0, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 69,
+          lineNumber: 73,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("div", { className: "auth__row", children: [
@@ -498,7 +555,7 @@ function Register() {
             !1,
             {
               fileName: "app/routes/_auth.register.tsx",
-              lineNumber: 84,
+              lineNumber: 88,
               columnNumber: 17
             },
             this
@@ -517,14 +574,14 @@ function Register() {
             !1,
             {
               fileName: "app/routes/_auth.register.tsx",
-              lineNumber: 91,
+              lineNumber: 95,
               columnNumber: 17
             },
             this
           )
         ] }, void 0, !0, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 83,
+          lineNumber: 87,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("div", { className: "auth__row", children: [
@@ -540,7 +597,7 @@ function Register() {
             !1,
             {
               fileName: "app/routes/_auth.register.tsx",
-              lineNumber: 101,
+              lineNumber: 105,
               columnNumber: 17
             },
             this
@@ -559,29 +616,29 @@ function Register() {
             !1,
             {
               fileName: "app/routes/_auth.register.tsx",
-              lineNumber: 107,
+              lineNumber: 111,
               columnNumber: 17
             },
             this
           )
         ] }, void 0, !0, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 100,
+          lineNumber: 104,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_material2.Button, { variant: "contained", type: "submit", children: "Cadastrar-se" }, void 0, !1, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 116,
+          lineNumber: 120,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("span", { children: "J\xE1 tem uma conta?" }, void 0, !1, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 119,
+          lineNumber: 123,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_react5.Link, { to: "/login", children: "Entre agora" }, void 0, !1, {
           fileName: "app/routes/_auth.register.tsx",
-          lineNumber: 120,
+          lineNumber: 124,
           columnNumber: 13
         }, this)
       ]
@@ -590,7 +647,7 @@ function Register() {
     !0,
     {
       fileName: "app/routes/_auth.register.tsx",
-      lineNumber: 59,
+      lineNumber: 63,
       columnNumber: 9
     },
     this
@@ -602,29 +659,50 @@ var auth_login_exports = {};
 __export(auth_login_exports, {
   action: () => action2,
   default: () => Login,
-  headers: () => headers2,
+  loader: () => loader2,
   meta: () => meta2
 });
-var import_node3 = require("@remix-run/node");
+var import_node4 = require("@remix-run/node");
 var import_remix_validated_form3 = require("remix-validated-form"), import_react6 = require("@remix-run/react"), import_material3 = require("@mui/material");
-var import_jsx_dev_runtime5 = require("react/jsx-dev-runtime"), validator2 = createValidator(/* @__PURE__ */ new Set(["email", "password"])), headers2 = () => ({
-  "Cache-Control": "private, max-age=604800"
-}), meta2 = () => [
+var import_jsx_dev_runtime5 = require("react/jsx-dev-runtime"), validator2 = createValidator(/* @__PURE__ */ new Set(["email", "password"])), meta2 = () => [
   {
     title: "Entrar - Mei Invoices"
   }
-], action2 = async ({ request }) => {
+], loader2 = async ({ request }) => {
+  let { decodedToken } = await checkToken(request.headers.get("Cookie"));
+  if (decodedToken)
+    throw (0, import_node4.redirect)("/");
+  return null;
+}, action2 = async ({ request }) => {
+  let { session, decodedToken } = await checkToken(
+    request.headers.get("Cookie")
+  );
+  decodedToken && (0, import_node4.redirect)("/dashboard");
   let formData = await request.formData(), validate = await validator2.validate(formData);
   if (!validate.data)
-    return (0, import_node3.json)(
+    return (0, import_node4.json)(
       { message: "Verifique seus campos.", logged: !1 },
       { status: 406 }
     );
-  let data = validate.data;
-  return !0;
+  try {
+    let { email } = await loginUser(
+      validate.data
+    ), token = await createToken(email);
+    session.set("__auth", token);
+  } catch {
+    return (0, import_node4.json)(
+      { message: "Login inv\xE1lido.", logged: !1 },
+      { status: 401 }
+    );
+  }
+  throw (0, import_node4.redirect)("/", {
+    headers: {
+      "Set-Cookie": await commitSession(session)
+    }
+  });
 };
 function Login() {
-  let action3 = (0, import_react6.useActionData)();
+  let action3 = (0, import_react6.useActionData)(), navigation = (0, import_react6.useNavigation)();
   return /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(
     import_remix_validated_form3.ValidatedForm,
     {
@@ -634,11 +712,11 @@ function Login() {
       children: [
         (action3 == null ? void 0 : action3.logged) == !1 ? /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("p", { className: "auth__error", children: action3 == null ? void 0 : action3.message }, void 0, !1, {
           fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 48,
+          lineNumber: 80,
           columnNumber: 17
         }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_jsx_dev_runtime5.Fragment, {}, void 0, !1, {
           fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 50,
+          lineNumber: 82,
           columnNumber: 17
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(
@@ -648,13 +726,14 @@ function Login() {
             type: "email",
             label: "E-mail",
             name: "email",
-            placeholder: "email@example.com"
+            placeholder: "email@example.com",
+            disabled: navigation.state == "submitting"
           },
           void 0,
           !1,
           {
             fileName: "app/routes/_auth.login.tsx",
-            lineNumber: 52,
+            lineNumber: 84,
             columnNumber: 13
           },
           this
@@ -665,13 +744,14 @@ function Login() {
             variant: "outlined",
             type: "password",
             label: "Senha",
-            name: "password"
+            name: "password",
+            disabled: navigation.state == "submitting"
           },
           void 0,
           !1,
           {
             fileName: "app/routes/_auth.login.tsx",
-            lineNumber: 59,
+            lineNumber: 92,
             columnNumber: 13
           },
           this
@@ -681,33 +761,46 @@ function Login() {
           {
             control: /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_material3.Checkbox, { defaultChecked: !0 }, void 0, !1, {
               fileName: "app/routes/_auth.login.tsx",
-              lineNumber: 66,
+              lineNumber: 100,
               columnNumber: 26
             }, this),
-            label: "Manter autenticado"
+            label: "Manter autenticado",
+            disabled: navigation.state == "submitting"
           },
           void 0,
           !1,
           {
             fileName: "app/routes/_auth.login.tsx",
-            lineNumber: 65,
+            lineNumber: 99,
             columnNumber: 13
           },
           this
         ),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_material3.Button, { variant: "contained", type: "submit", children: "Entrar" }, void 0, !1, {
-          fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 69,
-          columnNumber: 13
-        }, this),
+        /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(
+          import_material3.Button,
+          {
+            variant: "contained",
+            disabled: navigation.state == "submitting",
+            type: "submit",
+            children: "Entrar"
+          },
+          void 0,
+          !1,
+          {
+            fileName: "app/routes/_auth.login.tsx",
+            lineNumber: 104,
+            columnNumber: 13
+          },
+          this
+        ),
         /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("span", { children: "N\xE3o possui uma conta?" }, void 0, !1, {
           fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 72,
+          lineNumber: 111,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_react6.Link, { to: "/register", children: "Cadastre-se" }, void 0, !1, {
           fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 73,
+          lineNumber: 112,
           columnNumber: 13
         }, this)
       ]
@@ -716,7 +809,7 @@ function Login() {
     !0,
     {
       fileName: "app/routes/_auth.login.tsx",
-      lineNumber: 42,
+      lineNumber: 74,
       columnNumber: 9
     },
     this
@@ -726,11 +819,22 @@ function Login() {
 // app/routes/_index.tsx
 var index_exports = {};
 __export(index_exports, {
-  loader: () => loader
+  default: () => Home,
+  loader: () => loader3
 });
-var import_react_router = require("react-router"), loader = () => {
-  throw (0, import_react_router.redirect)("/login");
+var import_node5 = require("@remix-run/node"), import_react7 = require("@remix-run/react");
+var import_jsx_dev_runtime6 = require("react/jsx-dev-runtime"), loader3 = async ({ request }) => {
+  let { decodedToken } = await checkToken(request.headers.get("Cookie"));
+  return decodedToken ? (0, import_node5.json)({ logged: !0 }) : (0, import_node5.json)({ logged: !1 });
 };
+function Home() {
+  let data = (0, import_react7.useLoaderData)();
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)("p", { children: data.logged.toString() }, void 0, !1, {
+    fileName: "app/routes/_index.tsx",
+    lineNumber: 14,
+    columnNumber: 12
+  }, this);
+}
 
 // app/routes/_auth.tsx
 var auth_exports = {};
@@ -738,27 +842,27 @@ __export(auth_exports, {
   default: () => AuthLayout,
   links: () => links2
 });
-var import_react7 = require("@remix-run/react"), import_framer_motion = require("framer-motion");
+var import_react8 = require("@remix-run/react"), import_framer_motion = require("framer-motion");
 
 // app/assets/css/layout/auth.css
-var auth_default = "/build/_assets/auth-HA37POCS.css";
+var auth_default = "/build/_assets/auth-WWG5F7VF.css";
 
 // app/routes/_auth.tsx
-var import_jsx_dev_runtime6 = require("react/jsx-dev-runtime"), links2 = () => [
+var import_jsx_dev_runtime7 = require("react/jsx-dev-runtime"), links2 = () => [
   {
     href: auth_default,
     rel: "stylesheet"
   }
 ];
 function AuthLayout() {
-  let outlet = (0, import_react7.useOutlet)(), location = (0, import_react7.useLocation)();
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)("main", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)("section", { className: "auth", children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)("h1", { children: "Mei Invoices" }, void 0, !1, {
+  let outlet = (0, import_react8.useOutlet)(), location = (0, import_react8.useLocation)();
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)("main", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)("section", { className: "auth", children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)("h1", { children: "Mei Invoices" }, void 0, !1, {
       fileName: "app/routes/_auth.tsx",
       lineNumber: 21,
       columnNumber: 17
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)(import_framer_motion.AnimatePresence, { mode: "wait", initial: !1, children: /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)(
+    /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_framer_motion.AnimatePresence, { mode: "wait", initial: !1, children: /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(
       import_framer_motion.motion.div,
       {
         className: "auth__wrapper",

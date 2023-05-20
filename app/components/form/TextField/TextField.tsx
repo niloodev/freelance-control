@@ -1,30 +1,41 @@
-import { TextFieldProps, TextField as MaterialTextField } from '@mui/material'
+import {
+    TextFieldProps,
+    TextField as MaterialTextField,
+    InputProps,
+} from '@mui/material'
 import { useField, useControlField } from 'remix-validated-form'
 import InputMask from 'react-input-mask'
-import { memo } from 'react'
+import { memo, ReactNode } from 'react'
 
 export const TextField: React.FC<
     { name: string; mask?: string } & TextFieldProps
 > = memo(
     ({ name, mask = '', ...props }) => {
         const { error, getInputProps, validate } = useField(name)
-        const [value, setValue] = useControlField(name)
+        const [value, setValue] = useControlField<string>(name)
 
         return (
             <InputMask
                 {...getInputProps({
                     id: name,
-                    value: value ?? '',
-                    onChange: (e: any) => {
+                    value: value,
+                    mask: mask,
+                    onChange: e => {
                         setValue(e.target.value)
                         validate()
                     },
-                } as any)}
+                })}
+                {...(props as React.ComponentProps<typeof InputMask>)}
                 mask={mask}
                 maskPlaceholder={null}
             >
                 {
-                    ((nextProps: any) => {
+                    ((
+                        nextProps: Partial<InputProps> & {
+                            mask?: string
+                            maskPlaceholder?: string
+                        }
+                    ) => {
                         delete nextProps.mask
                         delete nextProps.maskPlaceholder
                         return (
@@ -41,7 +52,7 @@ export const TextField: React.FC<
                                 {...props}
                             ></MaterialTextField>
                         )
-                    }) as any
+                    }) as unknown as ReactNode
                 }
             </InputMask>
         )

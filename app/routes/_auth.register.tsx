@@ -1,12 +1,14 @@
 import {
     ActionFunction,
-    HeadersFunction,
     json,
     redirect,
     V2_MetaFunction,
+    LoaderFunction,
+    LoaderArgs,
 } from '@remix-run/node'
 import { useActionData } from '@remix-run/react'
 import { createValidator } from '~/utils/validation/validation.boilerplate'
+import { checkToken } from '~/actions/auth.actions'
 
 import { ValidatedForm } from 'remix-validated-form'
 import { Link } from '@remix-run/react'
@@ -19,15 +21,17 @@ const validator = createValidator(
     new Set(['email', 'password', 'tel', 'cnpj', 'meiName', 'name'])
 )
 
-export const headers: HeadersFunction = () => ({
-    'Cache-Control': 'private, max-age=604800',
-})
-
 export const meta: V2_MetaFunction = () => [
     {
         title: 'Cadastro - Mei Invoices',
     },
 ]
+
+export const loader: LoaderFunction = async ({ request }: LoaderArgs) => {
+    const { decodedToken } = await checkToken(request.headers.get('Cookie'))
+    if (decodedToken) throw redirect('/')
+    return null
+}
 
 export const action: ActionFunction = async ({ request }) => {
     let formData = await request.formData()
