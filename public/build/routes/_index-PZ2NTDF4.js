@@ -29,11 +29,11 @@ function Home() {
   const data = useLoaderData();
   return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("p", { children: data.logged.toString() }, void 0, false, {
     fileName: "app/routes/_index.tsx",
-    lineNumber: 14,
+    lineNumber: 16,
     columnNumber: 12
   }, this);
 }
 export {
   Home as default
 };
-//# sourceMappingURL=/build/routes/_index-T7FBXZBJ.js.map
+//# sourceMappingURL=/build/routes/_index-PZ2NTDF4.js.map

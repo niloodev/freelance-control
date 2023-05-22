@@ -3,7 +3,9 @@ import { useLoaderData } from '@remix-run/react'
 import { checkToken } from '~/actions/auth.actions'
 
 export const loader: LoaderFunction = async ({ request }: LoaderArgs) => {
-    const { decodedToken } = await checkToken(request.headers.get('Cookie'))
+    const { session, decodedToken } = await checkToken(
+        request.headers.get('Cookie')
+    )
     if (decodedToken) return json({ logged: true })
     return json({ logged: false })
 }

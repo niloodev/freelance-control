@@ -108,7 +108,6 @@ export default function Login() {
             >
                 Entrar
             </Button>
-            <span>Não possui uma conta?</span>
             <Link to="/register">Cadastre-se</Link>
         </ValidatedForm>
     )

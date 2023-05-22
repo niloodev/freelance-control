@@ -137,14 +137,9 @@ function Login() {
           },
           this
         ),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { children: "N\xE3o possui uma conta?" }, void 0, false, {
-          fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 111,
-          columnNumber: 13
-        }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Link, { to: "/register", children: "Cadastre-se" }, void 0, false, {
           fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 112,
+          lineNumber: 111,
           columnNumber: 13
         }, this)
       ]
@@ -163,4 +158,4 @@ export {
   Login as default,
   meta
 };
-//# sourceMappingURL=/build/routes/_auth.login-KRZ6FXWW.js.map
+//# sourceMappingURL=/build/routes/_auth.login-6HK4KYCW.js.map

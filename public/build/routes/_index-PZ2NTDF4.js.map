@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["browser-route-module:routes/_index.tsx?browser", "../../../app/routes/_index.tsx"],
+  "sourcesContent": ["export { default } from \"./routes/_index.tsx\";", "import { json, LoaderArgs, LoaderFunction } from '@remix-run/node'\nimport { useLoaderData } from '@remix-run/react'\nimport { checkToken } from '~/actions/auth.actions'\n\nexport const loader: LoaderFunction = async ({ request }: LoaderArgs) => {\n    const { session, decodedToken } = await checkToken(\n        request.headers.get('Cookie')\n    )\n    if (decodedToken) return json({ logged: true })\n    return json({ logged: false })\n}\n\nexport default function Home() {\n    const data = useLoaderData()\n\n    return <p>{data.logged.toString()}</p>\n}\n"],
+  "mappings": ";;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;;;ACAA;AAAA;AAAA;AAAA;AAAA;AACA;AAcW;AAHI,SAAR,OAAwB;AAC3B,QAAM,OAAO,cAAc;AAE3B,SAAO,mDAAC,OAAG,eAAK,OAAO,SAAS,KAAzB;AAAA;AAAA;AAAA;AAAA,SAA2B;AACtC;",
+  "names": []
+}

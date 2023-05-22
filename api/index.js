@@ -34,7 +34,7 @@ __export(assets_manifest_exports, {
 });
 var assets_manifest_default, init_assets_manifest = __esm({
   "server-assets-manifest:@remix-run/dev/assets-manifest"() {
-    assets_manifest_default = { version: "137ff61e", entry: { module: "/build/entry.client-26LRK7NX.js", imports: ["/build/_shared/chunk-FMBPE4YN.js", "/build/_shared/chunk-LDQVXYHF.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-J4ZVSSV5.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth": { id: "routes/_auth", parentId: "root", path: void 0, index: void 0, caseSensitive: void 0, module: "/build/routes/_auth-XWGUOY3B.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth.login": { id: "routes/_auth.login", parentId: "routes/_auth", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/_auth.login-KRZ6FXWW.js", imports: ["/build/_shared/chunk-WHDRGZV3.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth.register": { id: "routes/_auth.register", parentId: "routes/_auth", path: "register", index: void 0, caseSensitive: void 0, module: "/build/routes/_auth.register-K6V4LOMK.js", imports: ["/build/_shared/chunk-WHDRGZV3.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-T7FBXZBJ.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, hmr: void 0, url: "/build/manifest-137FF61E.js" };
+    assets_manifest_default = { version: "5544ad30", entry: { module: "/build/entry.client-26LRK7NX.js", imports: ["/build/_shared/chunk-FMBPE4YN.js", "/build/_shared/chunk-LDQVXYHF.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-J4ZVSSV5.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth": { id: "routes/_auth", parentId: "root", path: void 0, index: void 0, caseSensitive: void 0, module: "/build/routes/_auth-XWGUOY3B.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth.login": { id: "routes/_auth.login", parentId: "routes/_auth", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/_auth.login-6HK4KYCW.js", imports: ["/build/_shared/chunk-WHDRGZV3.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_auth.register": { id: "routes/_auth.register", parentId: "routes/_auth", path: "register", index: void 0, caseSensitive: void 0, module: "/build/routes/_auth.register-K6V4LOMK.js", imports: ["/build/_shared/chunk-WHDRGZV3.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-PZ2NTDF4.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, hmr: void 0, url: "/build/manifest-5544AD30.js" };
   }
 });
 
@@ -793,14 +793,9 @@ function Login() {
           },
           this
         ),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("span", { children: "N\xE3o possui uma conta?" }, void 0, !1, {
-          fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 111,
-          columnNumber: 13
-        }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_react6.Link, { to: "/register", children: "Cadastre-se" }, void 0, !1, {
           fileName: "app/routes/_auth.login.tsx",
-          lineNumber: 112,
+          lineNumber: 111,
           columnNumber: 13
         }, this)
       ]
@@ -824,14 +819,16 @@ __export(index_exports, {
 });
 var import_node5 = require("@remix-run/node"), import_react7 = require("@remix-run/react");
 var import_jsx_dev_runtime6 = require("react/jsx-dev-runtime"), loader3 = async ({ request }) => {
-  let { decodedToken } = await checkToken(request.headers.get("Cookie"));
+  let { session, decodedToken } = await checkToken(
+    request.headers.get("Cookie")
+  );
   return decodedToken ? (0, import_node5.json)({ logged: !0 }) : (0, import_node5.json)({ logged: !1 });
 };
 function Home() {
   let data = (0, import_react7.useLoaderData)();
   return /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)("p", { children: data.logged.toString() }, void 0, !1, {
     fileName: "app/routes/_index.tsx",
-    lineNumber: 14,
+    lineNumber: 16,
     columnNumber: 12
   }, this);
 }
